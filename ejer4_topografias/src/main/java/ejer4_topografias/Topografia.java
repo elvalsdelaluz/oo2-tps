@@ -9,10 +9,9 @@ public abstract class Topografia{
 	
 	public  abstract boolean equals(Topografia topo);
 	
-	public boolean compararIgualdad(Topografia p2) {
-		
-		return this.calcularProporcionAgua() == p2.calcularProporcionAgua();
-	}
+//	public boolean compararIgualdad(Topografia topo2) {	
+//		return this.calcularProporcionAgua() == topo2.calcularProporcionAgua();
+//	}
 
 	public boolean equals(Object o) {
 		if (o == null) return false;
@@ -22,11 +21,11 @@ public abstract class Topografia{
 		return false;
 	}
 	
-	public boolean compararContraSimple(Simple simple) {
-		return false;
+	public boolean compararContraSimple(Simple simple) { //Este método se ejecuta si la clase topo es Mixta
+		return false;                                    
 	}
 
-	public boolean compararContraMixta(Mixta mixta) {
+	public boolean compararContraMixta(Mixta mixta) { //Este método se ejecuta si la clase topo es Simple
 		return false;
 	}
 

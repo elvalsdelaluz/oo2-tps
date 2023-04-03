@@ -32,11 +32,11 @@ public class Mixta extends Topografia{
 	}
 	 
 
-	public boolean compararIgualdad(Topografia topo) {
-		return super.compararIgualdad(topo) && this.equals(topo);
-		
-				
-	}
+//	public boolean compararIgualdad(Topografia topo) {
+//		return super.compararIgualdad(topo) && this.equals(topo);
+//		
+//				
+//	}
 	
 	
 	public boolean equals (Topografia topo) {

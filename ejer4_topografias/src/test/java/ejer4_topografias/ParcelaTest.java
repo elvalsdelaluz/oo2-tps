@@ -35,24 +35,40 @@ public class ParcelaTest {
 	public void testProporcionAgua() {
 		assertEquals(1, parcelaAgua.calcularProporcionAgua());
 		assertEquals(0.5, mixta.calcularProporcionAgua());
-	//	assertEquals (0.5, mixtaMixta.calcularProporcionAgua());
 	}
-
+	
 	@Test
 	public void testsIgualdad() {
-		assertTrue(parcelaTierra.compararIgualdad(parcelaTierra2));
-		assertFalse(parcelaTierra.compararIgualdad(parcelaAgua));
-		assertFalse(parcelaTierra.compararIgualdad(mixta));
-	    assertFalse(mixta.compararIgualdad(mixtaMixta));
-		assertTrue(mixtaMixta.compararIgualdad(mixtaMixta2));
+		assertTrue(parcelaTierra.equals(parcelaTierra2));
+		assertFalse(parcelaTierra.equals(parcelaAgua));
+		assertFalse(parcelaTierra.equals(mixta));
+	    assertFalse(mixta.equals(mixtaMixta));
+		assertTrue(mixtaMixta.equals(mixtaMixta2));
 		
 		Mixta mixtaMalvado = new Mixta(Simple.agua(), 
 				new Mixta(Simple.agua(), Simple.agua(), Simple.agua(), Simple.tierra()), 
 				Simple.agua(), 
 				new Mixta(Simple.agua(), Simple.agua(), Simple.agua(), Simple.agua()));
-		assertFalse(mixtaMixta.compararIgualdad(mixtaMalvado));
+		assertFalse(mixtaMixta.equals(mixtaMalvado));
 		assertFalse(mixtaMixta.equals((Object)null));
 		assertFalse(mixtaMixta.equals("hola"));
 	}
+
+//	@Test
+//	public void testsIgualdad() {
+//		assertTrue(parcelaTierra.compararIgualdad(parcelaTierra2));
+//		assertFalse(parcelaTierra.compararIgualdad(parcelaAgua));
+//		assertFalse(parcelaTierra.compararIgualdad(mixta));
+//	    assertFalse(mixta.compararIgualdad(mixtaMixta));
+//		assertTrue(mixtaMixta.compararIgualdad(mixtaMixta2));
+//		
+//		Mixta mixtaMalvado = new Mixta(Simple.agua(), 
+//				new Mixta(Simple.agua(), Simple.agua(), Simple.agua(), Simple.tierra()), 
+//				Simple.agua(), 
+//				new Mixta(Simple.agua(), Simple.agua(), Simple.agua(), Simple.agua()));
+//		assertFalse(mixtaMixta.compararIgualdad(mixtaMalvado));
+//		assertFalse(mixtaMixta.equals((Object)null));
+//		assertFalse(mixtaMixta.equals("hola"));
+//	}
 	
 }

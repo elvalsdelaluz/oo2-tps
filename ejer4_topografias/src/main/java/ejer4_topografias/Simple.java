@@ -32,13 +32,15 @@ public class Simple extends Topografia {
 		return 1- proporcionAgua;
 	}
 	
-	public boolean equals (Topografia topo) {
-		return topo.compararContraSimple(this);
-		
-	}
+	public boolean equals (Topografia topo) {    ///Sabemos que this es una topografia Simple, pero no sabemos si topo es Simple o Mixta 
+		return topo.compararContraSimple(this);  //Lo que hacemos es mandar a this(SIMPLE) para que se compare contra topo.
+	}                                            //En el caso de que topo sea Simple se va a ejecutar el método compararContraSimple de la subclase
+	                                             //En caso de que topo sea Mixta se va a ejecutar el método comparaContraSimple de la superClase
+
 	
-	public boolean compararContraSimple(Simple simple) {
-		return this.proporcionAgua == simple.proporcionAgua;
+	
+	public boolean compararContraSimple(Simple simple) {      //Una topografia simple puede tener proporcion de agua 0, 1 o 0.7
+		return this.proporcionAgua == simple.proporcionAgua;  
 	}
 
 
