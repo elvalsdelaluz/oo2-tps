@@ -9,8 +9,14 @@ public class FileExtension extends FileDecorator {
 	}
 
 	//MÉTODOS
-	public String prettyPrint() {
+	public String hook() {
 		return this.getExtension();
 	}
+	
+//	public String prettyPrint() {
+//	return this.getExtension();
+//}
 
+
+	
 }

@@ -6,12 +6,15 @@ public class FileSize extends FileDecorator {
 		super(file);
 	}
 
-	@Override
-	public String prettyPrint() {
-		return file().prettyPrint()+getSize();
+    //MÉTODOS
+	public String hook() {
+		return String.valueOf(this.getSize());
 	}
 	
-	
+//	public String prettyPrint() {
+//	return file().prettyPrint()+getSize();
+//}
+
 	
 
 }

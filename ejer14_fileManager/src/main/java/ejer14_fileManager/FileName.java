@@ -8,9 +8,16 @@ public class FileName extends FileDecorator {
 		super(file);
 	}
 
-	//MÉTODOS
-	public String prettyPrint() {
+	@Override
+	public String hook() {
 		return this.getName();
 	}
 
+	//MÉTODOS
+//	public String prettyPrint() {
+//		return this.getName();
+//	}
+
+	
+	
 }
