@@ -25,16 +25,6 @@ public class TareaCompleja extends Tarea {
 		return this.tareas.stream().mapToInt(tarea -> tarea.tiempoUtilizado()).sum();
 	}
     
-	double avance() {
-		//return this.tareas.stream().mapToDouble(tarea -> tarea.avance()).sum(); //No se pide esto
-		//return this.tareas.stream().mapToDouble(tarea -> (tarea.tiempoUtilizado()/tarea.estimacionTotal())).sum(); //El sum no va ¿Que flashe?
-		
-		//return this.tareas.stream().mapToDouble(tarea -> tarea.tiempoUtilizado()).sum()/   
-		//	   this.tareas.stream().mapToDouble(tarea -> tarea.estimacionTotal()).sum();  //Va queriendo pero estoy reinventando?
-		//System.out.println(tiempoUtilizado()+ " "+estimacionTotal());
-		
-		return (double) this.tiempoUtilizado()/this.estimacionTotal(); //Esta es la que va!
-	}
 	
 	@Override
     void iniciar() {

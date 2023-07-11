@@ -1,60 +1,55 @@
 @startuml
 skinparam classAttributeIconSize 0
 abstract class Tarea{
-  descripcion: String
-  <<create>> Tarea (descripcion String)
-  {abstract} estimacionTotal(): Integer
-  {abstract} tiempoUtilizado(): Integer
-  {abstract} avance(): void
-  {abstract} iniciar(): void
-  {abstract} completar(): void
+ - descripcion: String
+ + <<create>> Tarea (descripcion String)
+  + avance(): Real
+ + {abstract} estimacionTotal(): Integer
+ + {abstract} tiempoUtilizado(): Integer
+ + {abstract} iniciar(): void
+ + {abstract} completar(): void
  
 }
 
 class TareaSimple{
-  duracionEstimada: Integer
-  inicio: Integer
-  fin: Integer
+ - duracionEstimada: Integer
+ - inicio: Integer
+ - fin: Integer
 
-  <<create>> TareaSimple (descripcion String, duracionEstimada Integer)
-  estimacionTotal(): Integer
-  tiempoUtilizado(): Integer
-  avance(): void
-  iniciar(): void
-  completar(): void
-  cambiarEstado(estado EstadoTarea):
-  finMenosInicio(): Integer
+ + <<create>> TareaSimple (descripcion String, duracionEstimada Integer)
+ + estimacionTotal(): Integer
+ + tiempoUtilizado(): Integer
+ + iniciar(): void
+ + completar(): void
+ + cambiarEstado(estado EstadoTarea):
+ + finMenosInicio(): Integer
 }
 
 class TareaCompleja{
-  <<create>> TareaCompleja (descripcion String, tareas[Tarea])
-  estimacionTotal(): Integer
-  tiempoUtilizado(): Integer
-  avance(): void
-  iniciar(): void
-  completar(): void
+ + <<create>> TareaCompleja (descripcion String)
+ + estimacionTotal(): Integer
+ + tiempoUtilizado(): Integer
+ + iniciar(): void
+ + completar(): void
+ + agregarTarea(tarea Tarea): void
 }
 
 abstract EstadoTarea {
-  iniciar(tarea TareaSimple): void
-  completar(tarea TareaSimple): void
-  tiempoUtilizado(tarea TareaSimple): Integer
- 
-
+ + iniciar(tarea TareaSimple): void
+ + completar(tarea TareaSimple): void
+ + tiempoUtilizado(tarea TareaSimple): Integer
 }
 
 class Iniciada {
-  completar(tarea TareaSimple)
+ + completar(tarea TareaSimple)
 }
 
 class NoIniciada {
-  iniciar(tarea TareaSimple): void
-
+ + iniciar(tarea TareaSimple): void
 }
 
 class Completada {
-  tiempoUtilizado(tarea TareaSimple): Integer
-  
+ + tiempoUtilizado(tarea TareaSimple): Integer
 }
 
 
@@ -63,8 +58,8 @@ class Completada {
 
 Tarea <|-- TareaSimple
 Tarea <|-- TareaCompleja
-TareaCompleja o--> Tarea
-EstadoTarea <-- TareaSimple
+TareaCompleja o--> Tarea: "tareas *"
+EstadoTarea <-- TareaSimple: "estado"
 EstadoTarea <|.. NoIniciada
 EstadoTarea <|.. Iniciada
 EstadoTarea <|.. Completada

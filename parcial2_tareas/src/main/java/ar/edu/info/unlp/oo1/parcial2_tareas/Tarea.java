@@ -9,7 +9,11 @@ public abstract class Tarea {
 	
 	abstract int estimacionTotal();
 	abstract int tiempoUtilizado();
-	abstract double avance();
+	
+	double avance() {
+		return (double) this.tiempoUtilizado()/this.estimacionTotal();
+	}
+	
 	abstract void iniciar();
 	abstract void completar();
 

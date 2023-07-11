@@ -24,12 +24,7 @@ public class TareaSimple extends Tarea{
 		return estado.tiempoUtilizado(this);
 	}
 	
-	double avance() {
-		//System.out.println(this.duracionEstimada + " " + this.inicio+ " "+ this.fin);
-		System.out.println(tiempoUtilizado() + " "+ estimacionTotal());
-		return tiempoUtilizado()/estimacionTotal();
-	}
-
+	
 	@Override
 	void iniciar() {
 		this.estado.iniciar(this);

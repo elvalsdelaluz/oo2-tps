@@ -12,7 +12,8 @@ class TestTarea {
 	private TareaSimple t3, t4, t5, t6; //SI LE PONGO DE TIPO TAREA NO VOY A PODER ACCEDER
 	                                        //A LOS SETTER AJFDKSAJFKAFASFHKAFDHKJSKFJDFK
 	private TareaCompleja tareaComplejaExterna;
-	private TareaCompleja tareaComplejaInterna;
+	//private Tarea tareaComplejaInterna; // esto me tira un ERROR
+	private TareaCompleja tareaComplejaInterna; 
 
 	@BeforeEach
 	void setUp() throws Exception {
