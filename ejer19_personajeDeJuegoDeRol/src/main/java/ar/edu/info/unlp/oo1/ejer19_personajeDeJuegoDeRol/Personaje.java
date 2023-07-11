@@ -49,14 +49,13 @@ public class Personaje {
     }
     
     public void recibirDaño(Arma armaDelAtacante) {
-    	this.puntos = this.puntos - armaDelAtacante.decimeElDañoQueRecibo(this.armadura);
+    	//this.puntos = this.puntos - armaDelAtacante.decimeElDañoQueRecibo(this.armadura); //doy muchas vueltas
+    	this.puntos = this.puntos - this.armadura.decimeElDañoSegunElArma(armaDelAtacante);
     }
     
     //Yo se que armadura y que arma tengo pero no sé que armadura y que arma tiene mi oponente
     public void hacerDaño(Personaje oponente) {
     	if (this.puedoEnfrentarme() && oponente.puedoEnfrentarme()) {
-    		System.out.println(this.getArma());
-    		System.out.println(oponente.getArmadura());
     	    //oponente.compararArmaduraYArma(this);
     		oponente.recibirDaño(this.arma);
     	}	
